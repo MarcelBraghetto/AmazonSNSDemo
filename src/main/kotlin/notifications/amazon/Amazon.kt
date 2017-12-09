@@ -69,14 +69,14 @@ object Amazon {
     in your server environment but for this simple demo they are just defined inline below:
      */
     private val accessKey = "- Enter your access key for your AWS SNS user -"
-    private val secreKey = "- Enter your secret key for your AWS SNS user -"
+    private val secretKey = "- Enter your secret key for your AWS SNS user -"
 
     private val snsClient by lazy {
         // Requests to Amazon can be done through an Amazon SNS client. It is a heavy process to initialise
         // one so we can just use a single instance of it.
         AmazonSNSClientBuilder.standard()
                 .withRegion(Regions.AP_SOUTHEAST_2)
-                .withCredentials(AWSStaticCredentialsProvider(BasicAWSCredentials(accessKey, secreKey)))
+                .withCredentials(AWSStaticCredentialsProvider(BasicAWSCredentials(accessKey, secretKey)))
                 .build()
     }
 
